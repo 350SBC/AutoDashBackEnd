@@ -21,18 +21,41 @@ const RACEPACK_CAN_MAP = {
    */
   0x1e005000: (data) => {
     return [
-      // { id: DATA_KEYS.INJECTOR_PULSEWIDTH, data: data.readInt32BE(0) / 256 },
+      { id: DATA_MAP.INJECTOR_PULSEWIDTH, data: data.readInt32BE(0) / 256 },
       { id: DATA_MAP.FUEL_FLOW, data: data.readInt32BE(4) / 256 },
     ];
   },
 
-  /**
+   /**
    * 1E009000
    * Closed Loop Status on/off
    * Duty Cycle         xxx.x percent
+   * @param {Buffer} data
+   * @returns
    */
+  0x1E009000: (data) => {
+    return [
+      { id: DATA_MAP.CLOSED_LOOP_STATUS, data: data.readInt32BE(0) / 256 },
+      { id: DATA_MAP.DUTY_CYCLE, data: data.readInt32BE(4) / 256 },
+    ];
+  },
 
-  /**
+   /**
+   * 1E00D000
+   * AFR Left 
+   * Closed Loop Comp   xxx.x percent
+   * @param {Buffer} data
+   * @returns
+   */
+   0x1E00D000: (data) => {
+    return [
+      { id: DATA_MAP.AFR_LEFT, data: data.readInt32BE(0) / 256 },
+      { id: DATA_MAP.CLOSED_LOOP_COMP, data: data.readInt32BE(4) / 256 },
+    ];
+  },
+
+   /**
+   * 1E029000
    * Pedal Position xxx percent
    * Fuel Pressure  xxx psi
    * @param {Buffer} data
@@ -41,17 +64,38 @@ const RACEPACK_CAN_MAP = {
   0x1e029000: (data) => {
     return [
       { id: DATA_MAP.PEDAL_POSITION, data: data.readInt32BE(0) / 256 },
-      // { id: DATA_KEYS.FUEL_PRESSURE, data: data.readInt32BE(4) / 256 },
+      { id: DATA_MAP.FUEL_PRESSURE, data: data.readInt32BE(4) / 256 },
+    ];
+  },
+  
+   /**
+   * Gear       xxx gear
+   * N20 Stage  xxx percent
+   * @param {Buffer} data
+   * @returns
+   */
+  0x1e045000: (data) => {
+    return [
+      { id: DATA_MAP.GEAR, data: data.readInt32BE(0) / 256 },
+     //{ id: DATA_MAP.N2O, data: data.readInt32BE(4) / 256 },
     ];
   },
 
-  /**
+    /**
    * 1E00D000
    * AFR Left                   xx.x A/F
    * Closed Loop Compensation   xxx percent
+   * @param {Buffer} data
+   * @returns
    */
+  0x1e011000: (data) => {
+    return [
+        { id: DATA_MAP.TARGET_AFR, data: data.readInt32BE(0) / 256 },
+     // { id: DATA_KEYS.AFR_RIGHT, data: data.readInt32BE(4) / 256 },
+    ];
+  },
 
-  /**
+   /**
    * 1E011000
    * Target AFR                   xx.x A/F
    * AFR Right                    xx.x A/F
@@ -65,7 +109,7 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-  /**
+   /**
    * 1E015000
    * Ignition Timing  xx.x degrees
    * AFR Average      xx.x A/F
@@ -79,7 +123,7 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-  /**
+   /**
    * 1E019000
    * Manifold Air Pressure (MAP)    xxx kPa
    * Knock Retard                   x degrees
@@ -93,7 +137,7 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-  /**
+   /**
    * 1E01D000
    * Manifold Air Temperature (MAT)xxx F
    * Throttle Position Sensor (TPS)xxx percent
@@ -107,7 +151,7 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-  /**
+   /**
    * 1E021000
    * Barometric Pressure          xxx.x kPa
    * Coolant Temperature (CTS)    xxx F
@@ -121,7 +165,7 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-  /**
+   /**
    * 1E025000
    * Oil Pressure         xxx   psi
    * Battery Voltage      xx.x volts
@@ -136,11 +180,23 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-  /**
+   /**
    * 0x1E049000
    * Line Pressure  xxx percent
    * Speed          xxx MPH
+   * @param {Buffer} data
+   * @returns
    */
+  0x1E049000: (data) => {
+     
+    return [
+      //{ id: DATA_MAP.LINE_PRESSURE, data: data.readInt32BE(0) / 256 },
+      { id: DATA_MAP.SPEEDO, data: data.readInt32BE(4) / 256 },
+    ];
+  },
+
+
+
 };
 
 // BIG NOTE:  (note for OpenINverter that uses LE)
