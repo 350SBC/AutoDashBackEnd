@@ -45,7 +45,8 @@ export const DATA_MAP = {
   CTS: { id: keygen(), byteType: TYPES.INT16 },  // coolant (defaults to F if TEMP_TYPE isnt set )
   OIL_PRESSURE: { id: keygen(), byteType: TYPES.INT16 }, // PSI  // xxx   psi
   BATT_VOLTAGE: { id: keygen(), byteType: TYPES.FLOAT }, // xx.x volts
-
+  LINE_PRESSURE: { id: keygen(), byteType: TYPES.INT16 }, // PSI 
+  GEAR: { id: keygen(), byteType: TYPES.INT8 },
   // Data from GPS
   ODOMETER:{ id: keygen(), byteType: TYPES.UINT32 },// Current Miles Odometer
   TRIP_ODOMETER: { id: keygen(), byteType: TYPES.INT16 }, //
