@@ -33,7 +33,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-  0x1E009000: (data) => {
+  0x1e009000: (data) => {
     return [
       { id: DATA_MAP.CLOSED_LOOP_STATUS, data: data.readInt32BE(0) / 256 },
       { id: DATA_MAP.DUTY_CYCLE, data: data.readInt32BE(4) / 256 },
@@ -47,7 +47,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-   0x1E00D000: (data) => {
+   0x1e00D000: (data) => {
     return [
       { id: DATA_MAP.AFR_LEFT, data: data.readInt32BE(0) / 256 },
       { id: DATA_MAP.CLOSED_LOOP_COMP, data: data.readInt32BE(4) / 256 },
@@ -81,20 +81,6 @@ const RACEPACK_CAN_MAP = {
     ];
   },
 
-    /**
-   * 1E00D000
-   * AFR Left                   xx.x A/F
-   * Closed Loop Compensation   xxx percent
-   * @param {Buffer} data
-   * @returns
-   */
-  0x1e011000: (data) => {
-    return [
-        { id: DATA_MAP.TARGET_AFR, data: data.readInt32BE(0) / 256 },
-     // { id: DATA_KEYS.AFR_RIGHT, data: data.readInt32BE(4) / 256 },
-    ];
-  },
-
    /**
    * 1E011000
    * Target AFR                   xx.x A/F
@@ -102,7 +88,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-  0x1E011000: (data) => {
+   0x1e011000: (data) => {
     return [
       { id: DATA_MAP.TARGET_AFR, data: data.readInt32BE(0) / 256 },
       // { id: DATA_KEYS.AFR_RIGHT, data: data.readInt32BE(4) / 256 },
@@ -116,7 +102,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-  0x1E015000: (data) => {
+  0x1e015000: (data) => {
     return [
       { id: DATA_MAP.IGNITION_TIMING, data: data.readInt32BE(0) / 256 },
       { id: DATA_MAP.AFR_AVERAGE, data: data.readInt32BE(4) / 256 },
@@ -130,7 +116,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-   0x1E019000: (data) => {
+   0x1e019000: (data) => {
     return [
       { id: DATA_MAP.MAP, data: data.readInt32BE(0) / 256 },
       // { id: DATA_KEYS.KNOCK_RETARD, data: data.readInt32BE(4) / 256 },
@@ -144,7 +130,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-   0x1E01D000: (data) => {
+   0x1e01D000: (data) => {
     return [
       { id: DATA_MAP.MAT, data: data.readInt32BE(0) / 256 },
       // { id: DATA_KEYS.TPS, data: data.readInt32BE(4) / 256 },
@@ -158,7 +144,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-   0x1E021000: (data) => {
+   0x1e021000: (data) => {
     return [
       { id: DATA_MAP.BAR_PRESSURE, data: data.readInt32BE(0) / 256 },
       { id: DATA_MAP.CTS, data: data.readInt32BE(4) / 256 },
@@ -172,7 +158,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-   0x1E025000: (data) => {
+   0x1e025000: (data) => {
      
     return [
       { id: DATA_MAP.OIL_PRESSURE, data: data.readInt32BE(0) / 256 },
@@ -187,7 +173,7 @@ const RACEPACK_CAN_MAP = {
    * @param {Buffer} data
    * @returns
    */
-  0x1E049000: (data) => {
+  0x1e049000: (data) => {
      
     return [
       //{ id: DATA_MAP.LINE_PRESSURE, data: data.readInt32BE(0) / 256 },
