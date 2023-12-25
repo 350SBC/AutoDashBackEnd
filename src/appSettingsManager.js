@@ -5,7 +5,7 @@ const FILE = './settings/appSettings.json'
 /**
  * @typedef CarPersistantData
  * @type {object}
- * @property {Number} odometer
+ * @property {Number} 
  * @property {Number} gallonsLeft
  */
 

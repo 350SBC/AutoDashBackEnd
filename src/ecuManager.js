@@ -138,7 +138,7 @@ export default (carSettings, canChannel) => {
 
     // add a new sample every 10 seconds
     if (newMsSample - lastMpgSampleTime > 10000) {
-      lastMpgSampleTime = newMsSample;
+ //     lastMpgSampleTime = newMsSample;
       ecuDataStore.averageMPGPoints.push(mpgSampler.average);
       ecuDataStore.write(
         DATA_MAP.AVERAGE_MPG_POINT_INDEX,
